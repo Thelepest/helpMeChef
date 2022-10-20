@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="recipeCategory">
+      <h2 data-cy="recipeCategoryDetailsHeading"><span jhiTranslate="helpMeChefApp.recipeCategory.detail.title">Recipe Category</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ recipeCategory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.recipeCategory.name">Name</span></dt>
+        <dd>
+          <span>{{ recipeCategory.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.recipeCategory.image">Image</span></dt>
+        <dd>
+          <div *ngIf="recipeCategory.image">
+            <a (click)="openFile(recipeCategory.image, recipeCategory.imageContentType)">
+              <img
+                [src]="'data:' + recipeCategory.imageContentType + ';base64,' + recipeCategory.image"
+                style="max-width: 100%"
+                alt="recipeCategory image"
+              />
+            </a>
+            {{ recipeCategory.imageContentType }}, {{ byteSize(recipeCategory.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.recipeCategory.description">Description</span></dt>
+        <dd>
+          <span>{{ recipeCategory.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/recipe-category', recipeCategory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

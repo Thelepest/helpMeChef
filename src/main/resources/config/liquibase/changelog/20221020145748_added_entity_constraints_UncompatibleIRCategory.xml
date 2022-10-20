@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity UncompatibleIRCategory.
+    -->
+    <changeSet id="20221020145748-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ingredientcategory_id"
+                                 baseTableName="uncompatible_ir_category"
+                                 constraintName="fk_uncompatible_ir_category__ingredientcategory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingredient_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipecategory_id"
+                                 baseTableName="uncompatible_ir_category"
+                                 constraintName="fk_uncompatible_ir_category__recipecategory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipe_category"/>
+    </changeSet>
+</databaseChangeLog>

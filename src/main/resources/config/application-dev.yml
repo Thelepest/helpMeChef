@@ -32,8 +32,8 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/helpMeChef
-    username: helpMeChef
+    url: jdbc:postgresql://localhost:5432/helpmechef
+    username: helpmechef
     password:
     hikari:
       poolName: Hikari
@@ -42,7 +42,7 @@ spring:
     database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:

@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145741",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ingredient",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Ingredient",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "ingredientCategory",
+      "otherEntityRelationshipName": "ingredient",
+      "relationshipName": "ingredientcategory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "ingredient",
+      "otherEntityRelationshipName": "ingredient",
+      "relationshipName": "parent",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

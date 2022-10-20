@@ -1,0 +1,93 @@
+<div>
+  <h2 id="page-heading" data-cy="IngredientCategoryHeading">
+    <span jhiTranslate="helpMeChefApp.ingredientCategory.home.title">Ingredient Categories</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="helpMeChefApp.ingredientCategory.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ingredient-category"
+        [routerLink]="['/ingredient-category/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="helpMeChefApp.ingredientCategory.home.createLabel"> Create a new Ingredient Category </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="ingredientCategories?.length === 0">
+    <span jhiTranslate="helpMeChefApp.ingredientCategory.home.notFound">No ingredientCategories found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="ingredientCategories && ingredientCategories.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.ingredientCategory.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.ingredientCategory.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.ingredientCategory.description">Description</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingredientCategory of ingredientCategories; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/ingredient-category', ingredientCategory.id, 'view']">{{ ingredientCategory.id }}</a>
+          </td>
+          <td>{{ ingredientCategory.name }}</td>
+          <td>
+            <a *ngIf="ingredientCategory.image" (click)="openFile(ingredientCategory.image, ingredientCategory.imageContentType)">
+              <img
+                [src]="'data:' + ingredientCategory.imageContentType + ';base64,' + ingredientCategory.image"
+                style="max-height: 30px"
+                alt="ingredientCategory image"
+              />
+            </a>
+            <span *ngIf="ingredientCategory.image"
+              >{{ ingredientCategory.imageContentType }}, {{ byteSize(ingredientCategory.image) }}</span
+            >
+          </td>
+          <td>{{ ingredientCategory.description }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/ingredient-category', ingredientCategory.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/ingredient-category', ingredientCategory.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(ingredientCategory)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

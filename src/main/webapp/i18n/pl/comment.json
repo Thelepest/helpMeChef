@@ -1,0 +1,27 @@
+{
+  "helpMeChefApp": {
+    "comment": {
+      "home": {
+        "title": "Comment",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Comment",
+        "createOrEditLabel": "Dodaj lub edytuj: Comment",
+        "notFound": "No Comments found"
+      },
+      "created": "Utworzono nowy obiekt typu Comment z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Comment z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Comment z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Comment {{ id }}?"
+      },
+      "detail": {
+        "title": "Comment"
+      },
+      "id": "ID",
+      "title": "Title",
+      "body": "Body",
+      "user": "User",
+      "recipe": "Recipe"
+    }
+  }
+}

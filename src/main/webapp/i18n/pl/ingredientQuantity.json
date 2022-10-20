@@ -1,0 +1,27 @@
+{
+  "helpMeChefApp": {
+    "ingredientQuantity": {
+      "home": {
+        "title": "Ingredient Quantity",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Ingredient Quantity",
+        "createOrEditLabel": "Dodaj lub edytuj: Ingredient Quantity",
+        "notFound": "No Ingredient Quantities found"
+      },
+      "created": "Utworzono nowy obiekt typu Ingredient Quantity z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Ingredient Quantity z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Ingredient Quantity z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Ingredient Quantity {{ id }}?"
+      },
+      "detail": {
+        "title": "Ingredient Quantity"
+      },
+      "id": "ID",
+      "ingredient": "Ingredient",
+      "quantity": "Quantity",
+      "pantry": "Pantry",
+      "recipe": "Recipe"
+    }
+  }
+}

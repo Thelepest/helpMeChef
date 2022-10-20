@@ -1,0 +1,26 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145750",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "my_config",
+  "fields": [
+    {
+      "fieldName": "mcKey",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "mcValue",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "MyConfig",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

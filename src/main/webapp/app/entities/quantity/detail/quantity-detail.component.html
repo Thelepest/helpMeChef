@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="quantity">
+      <h2 data-cy="quantityDetailsHeading"><span jhiTranslate="helpMeChefApp.quantity.detail.title">Quantity</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ quantity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.quantity.name">Name</span></dt>
+        <dd>
+          <span>{{ quantity.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.quantity.amount">Amount</span></dt>
+        <dd>
+          <span>{{ quantity.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.quantity.description">Description</span></dt>
+        <dd>
+          <span>{{ quantity.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/quantity', quantity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

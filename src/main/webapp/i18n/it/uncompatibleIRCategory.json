@@ -1,0 +1,25 @@
+{
+  "helpMeChefApp": {
+    "uncompatibleIRCategory": {
+      "home": {
+        "title": "UncompatibleIRCategories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Uncompatible IR Category",
+        "createOrEditLabel": "Genera o modifica un Uncompatible IR Category",
+        "notFound": "No Uncompatible IR Categories found"
+      },
+      "created": "&Egrave; stato generato un nuovo Uncompatible IR Category con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Uncompatible IR Category identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Uncompatible IR Category con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Uncompatible IR Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Uncompatible IR Category"
+      },
+      "id": "ID",
+      "ingredientcategory": "Ingredientcategory",
+      "recipecategory": "Recipecategory"
+    }
+  }
+}

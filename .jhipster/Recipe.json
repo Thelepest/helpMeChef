@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145744",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "recipe",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Recipe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "recipeCategory",
+      "otherEntityRelationshipName": "recipe",
+      "relationshipName": "recipecategory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "ingredientQuantity",
+      "otherEntityRelationshipName": "recipe",
+      "ownerSide": true,
+      "relationshipName": "ingredientquantity",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "tool",
+      "otherEntityRelationshipName": "recipe",
+      "ownerSide": false,
+      "relationshipName": "tool",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

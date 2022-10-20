@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145748",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "uncompatible_ir_category",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "UncompatibleIRCategory",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "ingredientCategory",
+      "otherEntityRelationshipName": "uncompatibleIRCategory",
+      "relationshipName": "ingredientcategory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "recipeCategory",
+      "otherEntityRelationshipName": "uncompatibleIRCategory",
+      "relationshipName": "recipecategory",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

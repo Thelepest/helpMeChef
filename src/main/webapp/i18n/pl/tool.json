@@ -1,0 +1,26 @@
+{
+  "helpMeChefApp": {
+    "tool": {
+      "home": {
+        "title": "Tool",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Tool",
+        "createOrEditLabel": "Dodaj lub edytuj: Tool",
+        "notFound": "No Tools found"
+      },
+      "created": "Utworzono nowy obiekt typu Tool z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Tool z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Tool z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Tool {{ id }}?"
+      },
+      "detail": {
+        "title": "Tool"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "recipe": "Recipe"
+    }
+  }
+}

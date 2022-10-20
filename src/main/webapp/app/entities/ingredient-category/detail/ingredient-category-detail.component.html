@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ingredientCategory">
+      <h2 data-cy="ingredientCategoryDetailsHeading">
+        <span jhiTranslate="helpMeChefApp.ingredientCategory.detail.title">Ingredient Category</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ingredientCategory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredientCategory.name">Name</span></dt>
+        <dd>
+          <span>{{ ingredientCategory.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredientCategory.image">Image</span></dt>
+        <dd>
+          <div *ngIf="ingredientCategory.image">
+            <a (click)="openFile(ingredientCategory.image, ingredientCategory.imageContentType)">
+              <img
+                [src]="'data:' + ingredientCategory.imageContentType + ';base64,' + ingredientCategory.image"
+                style="max-width: 100%"
+                alt="ingredientCategory image"
+              />
+            </a>
+            {{ ingredientCategory.imageContentType }}, {{ byteSize(ingredientCategory.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredientCategory.description">Description</span></dt>
+        <dd>
+          <span>{{ ingredientCategory.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ingredient-category', ingredientCategory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

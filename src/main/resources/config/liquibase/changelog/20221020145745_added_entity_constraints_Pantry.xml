@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Pantry.
+    -->
+    <changeSet id="20221020145745-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="pantry"
+                                 constraintName="fk_pantry__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="pantry_id"
+                                 baseTableName="rel_pantry__ingredientquantity"
+                                 constraintName="fk_rel_pantry__ingredientquantity__pantry_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pantry"/>
+
+        <addForeignKeyConstraint baseColumnNames="ingredientquantity_id"
+                                 baseTableName="rel_pantry__ingredientquantity"
+                                 constraintName="fk_rel_pantry__ingredientquantity__ingredientquantity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingredient_quantity"/>
+    </changeSet>
+</databaseChangeLog>

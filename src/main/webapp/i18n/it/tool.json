@@ -1,0 +1,26 @@
+{
+  "helpMeChefApp": {
+    "tool": {
+      "home": {
+        "title": "Tools",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Tool",
+        "createOrEditLabel": "Genera o modifica un Tool",
+        "notFound": "No Tools found"
+      },
+      "created": "&Egrave; stato generato un nuovo Tool con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Tool identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Tool con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Tool {{ id }}?"
+      },
+      "detail": {
+        "title": "Tool"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "recipe": "Recipe"
+    }
+  }
+}

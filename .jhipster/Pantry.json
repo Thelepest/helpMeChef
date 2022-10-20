@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145745",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pantry",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Pantry",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "pantry",
+      "relationshipName": "user",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "ingredientQuantity",
+      "otherEntityRelationshipName": "pantry",
+      "ownerSide": true,
+      "relationshipName": "ingredientquantity",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Encje",
+        "ingredient": "Ingredient",
+        "quantity": "Quantity",
+        "ingredientQuantity": "Ingredient Quantity",
+        "recipe": "Recipe",
+        "pantry": "Pantry",
+        "ingredientCategory": "Ingredient Category",
+        "recipeCategory": "Recipe Category",
+        "uncompatibleIrCategory": "Uncompatible IR Category",
+        "tool": "Tool",
+        "myConfig": "My Config",
+        "comment": "Comment",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

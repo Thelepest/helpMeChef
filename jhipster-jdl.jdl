@@ -1,0 +1,81 @@
+entity Ingredient {
+	name String required,
+    image ImageBlob,
+}
+
+entity Quantity {
+	name String required,
+    amount Long required
+    description String
+}
+
+entity IngredientQuantity {
+
+}
+
+entity Recipe{
+	name String required,
+    time Double,
+    description TextBlob required
+}
+
+entity Pantry {
+	name String required,
+    active Boolean required,
+    description String,
+    createdAt ZonedDateTime required,
+}
+
+entity IngredientCategory {
+	name String required,
+    image ImageBlob required,
+    description String
+}
+
+entity RecipeCategory {
+	name String required,
+    image ImageBlob required,
+    description String
+}
+
+entity UncompatibleIRCategory  {
+
+}
+
+entity Tool {
+	name String required,
+    description String,
+}
+
+entity MyConfig {
+	mcKey String required,
+    mcValue String required
+}
+
+entity Comment {
+	title String required,
+    body TextBlob required,
+}
+
+relationship ManyToMany {
+	Pantry{ingredientquantity(id)} to IngredientQuantity{pantry(name)}
+	Recipe{ingredientquantity(id)} to IngredientQuantity{recipe(name)}
+    Tool{recipe(name)} to Recipe{tool(name)}
+}
+
+relationship ManyToOne {
+	Ingredient{ingredientcategory(name)} to IngredientCategory
+    IngredientQuantity{ingredient(name)} to Ingredient
+    IngredientQuantity{quantity(name)} to Quantity
+    Recipe{recipecategory(name)} to RecipeCategory
+    UncompatibleIRCategory{ingredientcategory(name)} to IngredientCategory
+    UncompatibleIRCategory{recipecategory(name)} to RecipeCategory
+    Ingredient{parent(name)} to Ingredient
+    Pantry{user(login)} to User
+    Comment{user(login)} to User
+    Comment{recipe(name)} to Recipe
+
+}
+
+
+filter *

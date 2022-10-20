@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-ingredient-quantity-heading"
+        data-cy="IngredientQuantityCreateUpdateHeading"
+        jhiTranslate="helpMeChefApp.ingredientQuantity.home.createOrEditLabel"
+      >
+        Create or edit a Ingredient Quantity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="helpMeChefApp.ingredientQuantity.ingredient" for="field_ingredient">Ingredient</label>
+          <select class="form-control" id="field_ingredient" data-cy="ingredient" name="ingredient" formControlName="ingredient">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                ingredientOption.id === editForm.get('ingredient')!.value?.id ? editForm.get('ingredient')!.value : ingredientOption
+              "
+              *ngFor="let ingredientOption of ingredientsSharedCollection; trackBy: trackIngredientById"
+            >
+              {{ ingredientOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="helpMeChefApp.ingredientQuantity.quantity" for="field_quantity">Quantity</label>
+          <select class="form-control" id="field_quantity" data-cy="quantity" name="quantity" formControlName="quantity">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="quantityOption.id === editForm.get('quantity')!.value?.id ? editForm.get('quantity')!.value : quantityOption"
+              *ngFor="let quantityOption of quantitiesSharedCollection; trackBy: trackQuantityById"
+            >
+              {{ quantityOption.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

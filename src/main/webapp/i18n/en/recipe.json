@@ -1,0 +1,29 @@
+{
+  "helpMeChefApp": {
+    "recipe": {
+      "home": {
+        "title": "Recipes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Recipe",
+        "createOrEditLabel": "Create or edit a Recipe",
+        "notFound": "No Recipes found"
+      },
+      "created": "A new Recipe is created with identifier {{ param }}",
+      "updated": "A Recipe is updated with identifier {{ param }}",
+      "deleted": "A Recipe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Recipe {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipe"
+      },
+      "id": "ID",
+      "name": "Name",
+      "time": "Time",
+      "description": "Description",
+      "recipecategory": "Recipecategory",
+      "ingredientquantity": "Ingredientquantity",
+      "tool": "Tool"
+    }
+  }
+}

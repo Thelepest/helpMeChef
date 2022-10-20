@@ -1,0 +1,26 @@
+{
+  "helpMeChefApp": {
+    "ingredientCategory": {
+      "home": {
+        "title": "Ingredient Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ingredient Category",
+        "createOrEditLabel": "Create or edit a Ingredient Category",
+        "notFound": "No Ingredient Categories found"
+      },
+      "created": "A new Ingredient Category is created with identifier {{ param }}",
+      "updated": "A Ingredient Category is updated with identifier {{ param }}",
+      "deleted": "A Ingredient Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ingredient Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Ingredient Category"
+      },
+      "id": "ID",
+      "name": "Name",
+      "image": "Image",
+      "description": "Description"
+    }
+  }
+}

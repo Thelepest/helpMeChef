@@ -1,0 +1,91 @@
+<div>
+  <h2 id="page-heading" data-cy="RecipeCategoryHeading">
+    <span jhiTranslate="helpMeChefApp.recipeCategory.home.title">Recipe Categories</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="helpMeChefApp.recipeCategory.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-recipe-category"
+        [routerLink]="['/recipe-category/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="helpMeChefApp.recipeCategory.home.createLabel"> Create a new Recipe Category </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="recipeCategories?.length === 0">
+    <span jhiTranslate="helpMeChefApp.recipeCategory.home.notFound">No recipeCategories found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="recipeCategories && recipeCategories.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.recipeCategory.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.recipeCategory.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.recipeCategory.description">Description</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recipeCategory of recipeCategories; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/recipe-category', recipeCategory.id, 'view']">{{ recipeCategory.id }}</a>
+          </td>
+          <td>{{ recipeCategory.name }}</td>
+          <td>
+            <a *ngIf="recipeCategory.image" (click)="openFile(recipeCategory.image, recipeCategory.imageContentType)">
+              <img
+                [src]="'data:' + recipeCategory.imageContentType + ';base64,' + recipeCategory.image"
+                style="max-height: 30px"
+                alt="recipeCategory image"
+              />
+            </a>
+            <span *ngIf="recipeCategory.image">{{ recipeCategory.imageContentType }}, {{ byteSize(recipeCategory.image) }}</span>
+          </td>
+          <td>{{ recipeCategory.description }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/recipe-category', recipeCategory.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/recipe-category', recipeCategory.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(recipeCategory)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

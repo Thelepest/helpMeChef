@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ingredient">
+      <h2 data-cy="ingredientDetailsHeading"><span jhiTranslate="helpMeChefApp.ingredient.detail.title">Ingredient</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ingredient.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredient.name">Name</span></dt>
+        <dd>
+          <span>{{ ingredient.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredient.image">Image</span></dt>
+        <dd>
+          <div *ngIf="ingredient.image">
+            <a (click)="openFile(ingredient.image, ingredient.imageContentType)">
+              <img
+                [src]="'data:' + ingredient.imageContentType + ';base64,' + ingredient.image"
+                style="max-width: 100%"
+                alt="ingredient image"
+              />
+            </a>
+            {{ ingredient.imageContentType }}, {{ byteSize(ingredient.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredient.ingredientcategory">Ingredientcategory</span></dt>
+        <dd>
+          <div *ngIf="ingredient.ingredientcategory">
+            <a [routerLink]="['/ingredient-category', ingredient.ingredientcategory?.id, 'view']">{{
+              ingredient.ingredientcategory?.name
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="helpMeChefApp.ingredient.parent">Parent</span></dt>
+        <dd>
+          <div *ngIf="ingredient.parent">
+            <a [routerLink]="['/ingredient', ingredient.parent?.id, 'view']">{{ ingredient.parent?.name }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ingredient', ingredient.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

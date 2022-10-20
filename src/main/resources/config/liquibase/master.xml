@@ -15,7 +15,25 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145741_added_entity_Ingredient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145742_added_entity_Quantity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145743_added_entity_IngredientQuantity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145744_added_entity_Recipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145745_added_entity_Pantry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145746_added_entity_IngredientCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145747_added_entity_RecipeCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145748_added_entity_UncompatibleIRCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145749_added_entity_Tool.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145750_added_entity_MyConfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145751_added_entity_Comment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20221020145741_added_entity_constraints_Ingredient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145743_added_entity_constraints_IngredientQuantity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145744_added_entity_constraints_Recipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145745_added_entity_constraints_Pantry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145748_added_entity_constraints_UncompatibleIRCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145749_added_entity_constraints_Tool.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221020145751_added_entity_constraints_Comment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

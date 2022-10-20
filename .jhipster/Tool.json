@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145749",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tool",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Tool",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "recipe",
+      "otherEntityRelationshipName": "tool",
+      "ownerSide": true,
+      "relationshipName": "recipe",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

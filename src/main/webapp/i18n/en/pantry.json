@@ -1,0 +1,29 @@
+{
+  "helpMeChefApp": {
+    "pantry": {
+      "home": {
+        "title": "Pantries",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Pantry",
+        "createOrEditLabel": "Create or edit a Pantry",
+        "notFound": "No Pantries found"
+      },
+      "created": "A new Pantry is created with identifier {{ param }}",
+      "updated": "A Pantry is updated with identifier {{ param }}",
+      "deleted": "A Pantry is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pantry {{ id }}?"
+      },
+      "detail": {
+        "title": "Pantry"
+      },
+      "id": "ID",
+      "name": "Name",
+      "active": "Active",
+      "description": "Description",
+      "createdAt": "Created At",
+      "user": "User",
+      "ingredientquantity": "Ingredientquantity"
+    }
+  }
+}

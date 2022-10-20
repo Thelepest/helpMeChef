@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20221020145743",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ingredient_quantity",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "IngredientQuantity",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "ingredient",
+      "otherEntityRelationshipName": "ingredientQuantity",
+      "relationshipName": "ingredient",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "quantity",
+      "otherEntityRelationshipName": "ingredientQuantity",
+      "relationshipName": "quantity",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "pantry",
+      "otherEntityRelationshipName": "ingredientquantity",
+      "ownerSide": false,
+      "relationshipName": "pantry",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "recipe",
+      "otherEntityRelationshipName": "ingredientquantity",
+      "ownerSide": false,
+      "relationshipName": "recipe",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

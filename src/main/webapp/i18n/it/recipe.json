@@ -1,0 +1,29 @@
+{
+  "helpMeChefApp": {
+    "recipe": {
+      "home": {
+        "title": "Recipes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Recipe",
+        "createOrEditLabel": "Genera o modifica un Recipe",
+        "notFound": "No Recipes found"
+      },
+      "created": "&Egrave; stato generato un nuovo Recipe con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Recipe identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Recipe con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Recipe {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipe"
+      },
+      "id": "ID",
+      "name": "Name",
+      "time": "Time",
+      "description": "Description",
+      "recipecategory": "Recipecategory",
+      "ingredientquantity": "Ingredientquantity",
+      "tool": "Tool"
+    }
+  }
+}

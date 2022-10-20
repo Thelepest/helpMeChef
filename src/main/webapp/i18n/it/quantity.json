@@ -1,0 +1,26 @@
+{
+  "helpMeChefApp": {
+    "quantity": {
+      "home": {
+        "title": "Quantities",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Quantity",
+        "createOrEditLabel": "Genera o modifica un Quantity",
+        "notFound": "No Quantities found"
+      },
+      "created": "&Egrave; stato generato un nuovo Quantity con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Quantity identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Quantity con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Quantity {{ id }}?"
+      },
+      "detail": {
+        "title": "Quantity"
+      },
+      "id": "ID",
+      "name": "Name",
+      "amount": "Amount",
+      "description": "Description"
+    }
+  }
+}

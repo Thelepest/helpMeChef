@@ -1,0 +1,25 @@
+{
+  "helpMeChefApp": {
+    "myConfig": {
+      "home": {
+        "title": "MyConfigs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo My Config",
+        "createOrEditLabel": "Genera o modifica un My Config",
+        "notFound": "No My Configs found"
+      },
+      "created": "&Egrave; stato generato un nuovo My Config con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato My Config identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato My Config con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare My Config {{ id }}?"
+      },
+      "detail": {
+        "title": "My Config"
+      },
+      "id": "ID",
+      "mcKey": "Mc Key",
+      "mcValue": "Mc Value"
+    }
+  }
+}
