@@ -12,6 +12,8 @@ import { IRecipeCategory } from 'app/entities/recipe-category/recipe-category.mo
 import { RecipeCategoryService } from 'app/entities/recipe-category/service/recipe-category.service';
 import { IIngredientQuantity } from 'app/entities/ingredient-quantity/ingredient-quantity.model';
 import { IngredientQuantityService } from 'app/entities/ingredient-quantity/service/ingredient-quantity.service';
+import { ITool } from 'app/entities/tool/tool.model';
+import { ToolService } from 'app/entities/tool/service/tool.service';
 
 import { RecipeUpdateComponent } from './recipe-update.component';
 
@@ -22,6 +24,7 @@ describe('Recipe Management Update Component', () => {
   let recipeService: RecipeService;
   let recipeCategoryService: RecipeCategoryService;
   let ingredientQuantityService: IngredientQuantityService;
+  let toolService: ToolService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -45,6 +48,7 @@ describe('Recipe Management Update Component', () => {
     recipeService = TestBed.inject(RecipeService);
     recipeCategoryService = TestBed.inject(RecipeCategoryService);
     ingredientQuantityService = TestBed.inject(IngredientQuantityService);
+    toolService = TestBed.inject(ToolService);
 
     comp = fixture.componentInstance;
   });
@@ -94,12 +98,33 @@ describe('Recipe Management Update Component', () => {
       expect(comp.ingredientQuantitiesSharedCollection).toEqual(expectedCollection);
     });
 
+    it('Should call Tool query and add missing value', () => {
+      const recipe: IRecipe = { id: 456 };
+      const tools: ITool[] = [{ id: 51536 }];
+      recipe.tools = tools;
+
+      const toolCollection: ITool[] = [{ id: 78414 }];
+      jest.spyOn(toolService, 'query').mockReturnValue(of(new HttpResponse({ body: toolCollection })));
+      const additionalTools = [...tools];
+      const expectedCollection: ITool[] = [...additionalTools, ...toolCollection];
+      jest.spyOn(toolService, 'addToolToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ recipe });
+      comp.ngOnInit();
+
+      expect(toolService.query).toHaveBeenCalled();
+      expect(toolService.addToolToCollectionIfMissing).toHaveBeenCalledWith(toolCollection, ...additionalTools);
+      expect(comp.toolsSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should update editForm', () => {
       const recipe: IRecipe = { id: 456 };
       const recipecategory: IRecipeCategory = { id: 46818 };
       recipe.recipecategory = recipecategory;
       const ingredientquantities: IIngredientQuantity = { id: 71555 };
       recipe.ingredientquantities = [ingredientquantities];
+      const tools: ITool = { id: 19623 };
+      recipe.tools = [tools];
 
       activatedRoute.data = of({ recipe });
       comp.ngOnInit();
@@ -107,6 +132,7 @@ describe('Recipe Management Update Component', () => {
       expect(comp.editForm.value).toEqual(expect.objectContaining(recipe));
       expect(comp.recipeCategoriesSharedCollection).toContain(recipecategory);
       expect(comp.ingredientQuantitiesSharedCollection).toContain(ingredientquantities);
+      expect(comp.toolsSharedCollection).toContain(tools);
     });
   });
 
@@ -190,6 +216,14 @@ describe('Recipe Management Update Component', () => {
         expect(trackResult).toEqual(entity.id);
       });
     });
+
+    describe('trackToolById', () => {
+      it('Should return tracked Tool primary key', () => {
+        const entity = { id: 123 };
+        const trackResult = comp.trackToolById(0, entity);
+        expect(trackResult).toEqual(entity.id);
+      });
+    });
   });
 
   describe('Getting selected relationships', () => {
@@ -214,6 +248,32 @@ describe('Recipe Management Update Component', () => {
         const option = { id: 123 };
         const selected = { id: 456 };
         const result = comp.getSelectedIngredientQuantity(option, [selected]);
+        expect(result === option).toEqual(true);
+        expect(result === selected).toEqual(false);
+      });
+    });
+
+    describe('getSelectedTool', () => {
+      it('Should return option if no Tool is selected', () => {
+        const option = { id: 123 };
+        const result = comp.getSelectedTool(option);
+        expect(result === option).toEqual(true);
+      });
+
+      it('Should return selected Tool for according option', () => {
+        const option = { id: 123 };
+        const selected = { id: 123 };
+        const selected2 = { id: 456 };
+        const result = comp.getSelectedTool(option, [selected2, selected]);
+        expect(result === selected).toEqual(true);
+        expect(result === selected2).toEqual(false);
+        expect(result === option).toEqual(false);
+      });
+
+      it('Should return option if this Tool is not selected', () => {
+        const option = { id: 123 };
+        const selected = { id: 456 };
+        const result = comp.getSelectedTool(option, [selected]);
         expect(result === option).toEqual(true);
         expect(result === selected).toEqual(false);
       });

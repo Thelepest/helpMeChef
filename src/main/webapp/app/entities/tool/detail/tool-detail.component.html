@@ -22,13 +22,6 @@
         <dd>
           <span>{{ tool.description }}</span>
         </dd>
-        <dt><span jhiTranslate="helpMeChefApp.tool.recipe">Recipe</span></dt>
-        <dd>
-          <span *ngFor="let recipe of tool.recipes; let last = last">
-            <a [routerLink]="['/recipe', recipe?.id, 'view']">{{ recipe.name }}</a
-            >{{ last ? '' : ', ' }}
-          </span>
-        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

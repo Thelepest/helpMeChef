@@ -34,18 +34,6 @@
             formControlName="description"
           />
         </div>
-
-        <div class="row mb-3">
-          <label jhiTranslate="helpMeChefApp.tool.recipe" for="field_recipes">Recipe</label>
-          <select class="form-control" id="field_recipes" data-cy="recipe" multiple name="recipes" formControlName="recipes">
-            <option
-              [ngValue]="getSelectedRecipe(recipeOption, editForm.get('recipes')!.value)"
-              *ngFor="let recipeOption of recipesSharedCollection; trackBy: trackRecipeById"
-            >
-              {{ recipeOption.name }}
-            </option>
-          </select>
-        </div>
       </div>
 
       <div>

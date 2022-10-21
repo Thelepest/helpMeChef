@@ -35,7 +35,6 @@
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.tool.name">Name</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.tool.description">Description</span></th>
-          <th scope="col"><span jhiTranslate="helpMeChefApp.tool.recipe">Recipe</span></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -46,12 +45,6 @@
           </td>
           <td>{{ tool.name }}</td>
           <td>{{ tool.description }}</td>
-          <td>
-            <span *ngFor="let recipe of tool.recipes; let last = last">
-              <a class="form-control-static" [routerLink]="['/recipe', recipe.id, 'view']">{{ recipe.name }}</a
-              >{{ last ? '' : ', ' }}
-            </span>
-          </td>
           <td class="text-end">
             <div class="btn-group">
               <button type="submit" [routerLink]="['/tool', tool.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

@@ -20,7 +20,7 @@ public class RecipeRepositoryWithBagRelationshipsImpl implements RecipeRepositor
 
     @Override
     public Optional<Recipe> fetchBagRelationships(Optional<Recipe> recipe) {
-        return recipe.map(this::fetchIngredientquantities);
+        return recipe.map(this::fetchIngredientquantities).map(this::fetchTools);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class RecipeRepositoryWithBagRelationshipsImpl implements RecipeRepositor
 
     @Override
     public List<Recipe> fetchBagRelationships(List<Recipe> recipes) {
-        return Optional.of(recipes).map(this::fetchIngredientquantities).orElse(Collections.emptyList());
+        return Optional.of(recipes).map(this::fetchIngredientquantities).map(this::fetchTools).orElse(Collections.emptyList());
     }
 
     Recipe fetchIngredientquantities(Recipe result) {
@@ -50,6 +50,22 @@ public class RecipeRepositoryWithBagRelationshipsImpl implements RecipeRepositor
                 "select distinct recipe from Recipe recipe left join fetch recipe.ingredientquantities where recipe in :recipes",
                 Recipe.class
             )
+            .setParameter("recipes", recipes)
+            .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
+            .getResultList();
+    }
+
+    Recipe fetchTools(Recipe result) {
+        return entityManager
+            .createQuery("select recipe from Recipe recipe left join fetch recipe.tools where recipe is :recipe", Recipe.class)
+            .setParameter("recipe", result)
+            .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
+            .getSingleResult();
+    }
+
+    List<Recipe> fetchTools(List<Recipe> recipes) {
+        return entityManager
+            .createQuery("select distinct recipe from Recipe recipe left join fetch recipe.tools where recipe in :recipes", Recipe.class)
             .setParameter("recipes", recipes)
             .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
             .getResultList();

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Spring Data SQL repository for the Tool entity.
  */
+@SuppressWarnings("unused")
 @Repository
 public interface ToolRepository extends ToolRepositoryWithBagRelationships, JpaRepository<Tool, Long>, JpaSpecificationExecutor<Tool> {
     default Optional<Tool> findOneWithEagerRelationships(Long id) {

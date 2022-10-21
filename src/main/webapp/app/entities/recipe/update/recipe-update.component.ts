@@ -14,6 +14,8 @@ import { IRecipeCategory } from 'app/entities/recipe-category/recipe-category.mo
 import { RecipeCategoryService } from 'app/entities/recipe-category/service/recipe-category.service';
 import { IIngredientQuantity } from 'app/entities/ingredient-quantity/ingredient-quantity.model';
 import { IngredientQuantityService } from 'app/entities/ingredient-quantity/service/ingredient-quantity.service';
+import { ITool } from 'app/entities/tool/tool.model';
+import { ToolService } from 'app/entities/tool/service/tool.service';
 
 @Component({
   selector: 'jhi-recipe-update',
@@ -24,6 +26,7 @@ export class RecipeUpdateComponent implements OnInit {
 
   recipeCategoriesSharedCollection: IRecipeCategory[] = [];
   ingredientQuantitiesSharedCollection: IIngredientQuantity[] = [];
+  toolsSharedCollection: ITool[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -32,6 +35,7 @@ export class RecipeUpdateComponent implements OnInit {
     description: [null, [Validators.required]],
     recipecategory: [],
     ingredientquantities: [],
+    tools: [],
   });
 
   constructor(
@@ -40,6 +44,7 @@ export class RecipeUpdateComponent implements OnInit {
     protected recipeService: RecipeService,
     protected recipeCategoryService: RecipeCategoryService,
     protected ingredientQuantityService: IngredientQuantityService,
+    protected toolService: ToolService,
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder
   ) {}
@@ -89,7 +94,22 @@ export class RecipeUpdateComponent implements OnInit {
     return item.id!;
   }
 
+  trackToolById(_index: number, item: ITool): number {
+    return item.id!;
+  }
+
   getSelectedIngredientQuantity(option: IIngredientQuantity, selectedVals?: IIngredientQuantity[]): IIngredientQuantity {
+    if (selectedVals) {
+      for (const selectedVal of selectedVals) {
+        if (option.id === selectedVal.id) {
+          return selectedVal;
+        }
+      }
+    }
+    return option;
+  }
+
+  getSelectedTool(option: ITool, selectedVals?: ITool[]): ITool {
     if (selectedVals) {
       for (const selectedVal of selectedVals) {
         if (option.id === selectedVal.id) {
@@ -127,6 +147,7 @@ export class RecipeUpdateComponent implements OnInit {
       description: recipe.description,
       recipecategory: recipe.recipecategory,
       ingredientquantities: recipe.ingredientquantities,
+      tools: recipe.tools,
     });
 
     this.recipeCategoriesSharedCollection = this.recipeCategoryService.addRecipeCategoryToCollectionIfMissing(
@@ -137,6 +158,7 @@ export class RecipeUpdateComponent implements OnInit {
       this.ingredientQuantitiesSharedCollection,
       ...(recipe.ingredientquantities ?? [])
     );
+    this.toolsSharedCollection = this.toolService.addToolToCollectionIfMissing(this.toolsSharedCollection, ...(recipe.tools ?? []));
   }
 
   protected loadRelationshipsOptions(): void {
@@ -162,6 +184,12 @@ export class RecipeUpdateComponent implements OnInit {
         )
       )
       .subscribe((ingredientQuantities: IIngredientQuantity[]) => (this.ingredientQuantitiesSharedCollection = ingredientQuantities));
+
+    this.toolService
+      .query()
+      .pipe(map((res: HttpResponse<ITool[]>) => res.body ?? []))
+      .pipe(map((tools: ITool[]) => this.toolService.addToolToCollectionIfMissing(tools, ...(this.editForm.get('tools')!.value ?? []))))
+      .subscribe((tools: ITool[]) => (this.toolsSharedCollection = tools));
   }
 
   protected createFromForm(): IRecipe {
@@ -173,6 +201,7 @@ export class RecipeUpdateComponent implements OnInit {
       description: this.editForm.get(['description'])!.value,
       recipecategory: this.editForm.get(['recipecategory'])!.value,
       ingredientquantities: this.editForm.get(['ingredientquantities'])!.value,
+      tools: this.editForm.get(['tools'])!.value,
     };
   }
 }

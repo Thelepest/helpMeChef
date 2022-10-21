@@ -2,7 +2,6 @@ package it.marcobiasone.web.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
-import static org.mockito.Mockito.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -11,22 +10,15 @@ import it.marcobiasone.IntegrationTest;
 import it.marcobiasone.domain.Recipe;
 import it.marcobiasone.domain.Tool;
 import it.marcobiasone.repository.ToolRepository;
-import it.marcobiasone.service.ToolService;
 import it.marcobiasone.service.criteria.ToolCriteria;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -36,7 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
  * Integration tests for the {@link ToolResource} REST controller.
  */
 @IntegrationTest
-@ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 @WithMockUser
 class ToolResourceIT {
@@ -55,12 +46,6 @@ class ToolResourceIT {
 
     @Autowired
     private ToolRepository toolRepository;
-
-    @Mock
-    private ToolRepository toolRepositoryMock;
-
-    @Mock
-    private ToolService toolServiceMock;
 
     @Autowired
     private EntityManager em;
@@ -169,24 +154,6 @@ class ToolResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(tool.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)));
-    }
-
-    @SuppressWarnings({ "unchecked" })
-    void getAllToolsWithEagerRelationshipsIsEnabled() throws Exception {
-        when(toolServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
-
-        restToolMockMvc.perform(get(ENTITY_API_URL + "?eagerload=true")).andExpect(status().isOk());
-
-        verify(toolServiceMock, times(1)).findAllWithEagerRelationships(any());
-    }
-
-    @SuppressWarnings({ "unchecked" })
-    void getAllToolsWithEagerRelationshipsIsNotEnabled() throws Exception {
-        when(toolServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
-
-        restToolMockMvc.perform(get(ENTITY_API_URL + "?eagerload=true")).andExpect(status().isOk());
-
-        verify(toolServiceMock, times(1)).findAllWithEagerRelationships(any());
     }
 
     @Test

@@ -8,8 +8,6 @@ import { of, Subject, from } from 'rxjs';
 
 import { ToolService } from '../service/tool.service';
 import { ITool, Tool } from '../tool.model';
-import { IRecipe } from 'app/entities/recipe/recipe.model';
-import { RecipeService } from 'app/entities/recipe/service/recipe.service';
 
 import { ToolUpdateComponent } from './tool-update.component';
 
@@ -18,7 +16,6 @@ describe('Tool Management Update Component', () => {
   let fixture: ComponentFixture<ToolUpdateComponent>;
   let activatedRoute: ActivatedRoute;
   let toolService: ToolService;
-  let recipeService: RecipeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -40,41 +37,18 @@ describe('Tool Management Update Component', () => {
     fixture = TestBed.createComponent(ToolUpdateComponent);
     activatedRoute = TestBed.inject(ActivatedRoute);
     toolService = TestBed.inject(ToolService);
-    recipeService = TestBed.inject(RecipeService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call Recipe query and add missing value', () => {
-      const tool: ITool = { id: 456 };
-      const recipes: IRecipe[] = [{ id: 5894 }];
-      tool.recipes = recipes;
-
-      const recipeCollection: IRecipe[] = [{ id: 35271 }];
-      jest.spyOn(recipeService, 'query').mockReturnValue(of(new HttpResponse({ body: recipeCollection })));
-      const additionalRecipes = [...recipes];
-      const expectedCollection: IRecipe[] = [...additionalRecipes, ...recipeCollection];
-      jest.spyOn(recipeService, 'addRecipeToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ tool });
-      comp.ngOnInit();
-
-      expect(recipeService.query).toHaveBeenCalled();
-      expect(recipeService.addRecipeToCollectionIfMissing).toHaveBeenCalledWith(recipeCollection, ...additionalRecipes);
-      expect(comp.recipesSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should update editForm', () => {
       const tool: ITool = { id: 456 };
-      const recipes: IRecipe = { id: 30208 };
-      tool.recipes = [recipes];
 
       activatedRoute.data = of({ tool });
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(tool));
-      expect(comp.recipesSharedCollection).toContain(recipes);
     });
   });
 
@@ -139,44 +113,6 @@ describe('Tool Management Update Component', () => {
       expect(toolService.update).toHaveBeenCalledWith(tool);
       expect(comp.isSaving).toEqual(false);
       expect(comp.previousState).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Tracking relationships identifiers', () => {
-    describe('trackRecipeById', () => {
-      it('Should return tracked Recipe primary key', () => {
-        const entity = { id: 123 };
-        const trackResult = comp.trackRecipeById(0, entity);
-        expect(trackResult).toEqual(entity.id);
-      });
-    });
-  });
-
-  describe('Getting selected relationships', () => {
-    describe('getSelectedRecipe', () => {
-      it('Should return option if no Recipe is selected', () => {
-        const option = { id: 123 };
-        const result = comp.getSelectedRecipe(option);
-        expect(result === option).toEqual(true);
-      });
-
-      it('Should return selected Recipe for according option', () => {
-        const option = { id: 123 };
-        const selected = { id: 123 };
-        const selected2 = { id: 456 };
-        const result = comp.getSelectedRecipe(option, [selected2, selected]);
-        expect(result === selected).toEqual(true);
-        expect(result === selected2).toEqual(false);
-        expect(result === option).toEqual(false);
-      });
-
-      it('Should return option if this Recipe is not selected', () => {
-        const option = { id: 123 };
-        const selected = { id: 456 };
-        const result = comp.getSelectedRecipe(option, [selected]);
-        expect(result === option).toEqual(true);
-        expect(result === selected).toEqual(false);
-      });
     });
   });
 });

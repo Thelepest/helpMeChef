@@ -89,6 +89,18 @@
             </option>
           </select>
         </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="helpMeChefApp.recipe.tool" for="field_tools">Tool</label>
+          <select class="form-control" id="field_tools" data-cy="tool" multiple name="tools" formControlName="tools">
+            <option
+              [ngValue]="getSelectedTool(toolOption, editForm.get('tools')!.value)"
+              *ngFor="let toolOption of toolsSharedCollection; trackBy: trackToolById"
+            >
+              {{ toolOption.name }}
+            </option>
+          </select>
+        </div>
       </div>
 
       <div>

@@ -29,8 +29,7 @@ public class Tool implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany
-    @JoinTable(name = "rel_tool__recipe", joinColumns = @JoinColumn(name = "tool_id"), inverseJoinColumns = @JoinColumn(name = "recipe_id"))
+    @ManyToMany(mappedBy = "tools")
     @JsonIgnoreProperties(value = { "recipecategory", "ingredientquantities", "tools" }, allowSetters = true)
     private Set<Recipe> recipes = new HashSet<>();
 
@@ -80,6 +79,12 @@ public class Tool implements Serializable {
     }
 
     public void setRecipes(Set<Recipe> recipes) {
+        if (this.recipes != null) {
+            this.recipes.forEach(i -> i.removeTool(this));
+        }
+        if (recipes != null) {
+            recipes.forEach(i -> i.addTool(this));
+        }
         this.recipes = recipes;
     }
 

@@ -46,7 +46,7 @@
       "otherEntityField": "name",
       "otherEntityName": "tool",
       "otherEntityRelationshipName": "recipe",
-      "ownerSide": false,
+      "ownerSide": true,
       "relationshipName": "tool",
       "relationshipType": "many-to-many"
     }

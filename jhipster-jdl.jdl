@@ -60,7 +60,7 @@ entity Comment {
 relationship ManyToMany {
 	Pantry{ingredientquantity(id)} to IngredientQuantity{pantry(name)}
 	Recipe{ingredientquantity(id)} to IngredientQuantity{recipe(name)}
-    Tool{recipe(name)} to Recipe{tool(name)}
+    Recipe{tool(name)} to Tool{recipe(name)}
 }
 
 relationship ManyToOne {

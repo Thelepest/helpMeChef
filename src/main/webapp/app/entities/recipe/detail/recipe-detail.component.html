@@ -39,6 +39,13 @@
             >{{ last ? '' : ', ' }}
           </span>
         </dd>
+        <dt><span jhiTranslate="helpMeChefApp.recipe.tool">Tool</span></dt>
+        <dd>
+          <span *ngFor="let tool of recipe.tools; let last = last">
+            <a [routerLink]="['/tool', tool?.id, 'view']">{{ tool.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

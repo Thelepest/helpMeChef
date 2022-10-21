@@ -24,20 +24,6 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="20221020145749-1-relations" author="jhipster">
-
-        <createTable tableName="rel_tool__recipe">
-            <column name="recipe_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="tool_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="tool_id, recipe_id" tableName="rel_tool__recipe"/>
-    </changeSet>
-
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
 
     <!--
