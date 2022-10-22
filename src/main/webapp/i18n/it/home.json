@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Benvenuto, Java Hipster!",
-    "subtitle": "Questa è la tua home page",
+    "title": "Benvenuto su Help Me Chef!",
+    "subtitle": "Poche idee e tanta fame? Sei nel posto giusto!",
     "logged": {
       "message": "Autenticato come \"{{username}}\"."
     },
