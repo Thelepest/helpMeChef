@@ -147,5 +147,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "Piè di pagina"
+  "footer": "© 2022 Ing. Biasone Marco"
 }

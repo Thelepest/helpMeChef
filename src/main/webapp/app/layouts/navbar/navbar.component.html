@@ -1,4 +1,4 @@
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav style="padding-top: 25px; padding-bottom: 40px" data-cy="navbar" class="sticky-top sidebar navbar-light navbar-expand-md d-md-block">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
@@ -18,7 +18,7 @@
       <fa-icon icon="bars"></fa-icon>
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav mb-auto flex-column nav-pills">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
             <span>
@@ -42,7 +42,7 @@
               <span jhiTranslate="global.menu.entities.main">Entities</span>
             </span>
           </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+          <ul class="list-unstyled fw-normal pb-1 small" aria-labelledby="entity-menu" *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <li>
               <a
                 class="dropdown-item"

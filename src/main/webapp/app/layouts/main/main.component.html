@@ -1,13 +1,13 @@
 <jhi-page-ribbon></jhi-page-ribbon>
 
-<div>
-  <router-outlet name="navbar"></router-outlet>
-</div>
-
 <div class="container-fluid">
-  <div class="card jh-card">
-    <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-md-3 col-lg-3 bg-home" *ngIf="account !== null">
+      <router-outlet name="navbar"></router-outlet>
+    </div>
+    <div [ngClass]="account !== null ? 'col-md-9 col-lg-9 px-md-4' : 'col-12 bg-home'" class="card jh-card min-height ms-sm-auto">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-
   <jhi-footer></jhi-footer>
 </div>
