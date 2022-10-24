@@ -21,6 +21,7 @@
       "name": "Name",
       "time": "Time",
       "description": "Description",
+      "diners": "Diners",
       "recipecategory": "Recipecategory",
       "ingredientquantity": "Ingredientquantity",
       "tool": "Tool"

@@ -19,6 +19,11 @@
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "text",
       "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "diners",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
     }
   ],
   "fluentMethods": true,

@@ -35,6 +35,10 @@ public class Recipe implements Serializable {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @NotNull
+    @Column(name = "diners", nullable = false)
+    private Integer diners;
+
     @ManyToOne
     private RecipeCategory recipecategory;
 
@@ -104,6 +108,19 @@ public class Recipe implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getDiners() {
+        return this.diners;
+    }
+
+    public Recipe diners(Integer diners) {
+        this.setDiners(diners);
+        return this;
+    }
+
+    public void setDiners(Integer diners) {
+        this.diners = diners;
     }
 
     public RecipeCategory getRecipecategory() {
@@ -196,6 +213,7 @@ public class Recipe implements Serializable {
             ", name='" + getName() + "'" +
             ", time=" + getTime() +
             ", description='" + getDescription() + "'" +
+            ", diners=" + getDiners() +
             "}";
     }
 }

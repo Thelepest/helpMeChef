@@ -69,6 +69,9 @@ public class RecipeService {
                 if (recipe.getDescription() != null) {
                     existingRecipe.setDescription(recipe.getDescription());
                 }
+                if (recipe.getDiners() != null) {
+                    existingRecipe.setDiners(recipe.getDiners());
+                }
 
                 return existingRecipe;
             })

@@ -7,6 +7,7 @@ export interface IRecipe {
   name?: string;
   time?: number | null;
   description?: string;
+  diners?: number;
   recipecategory?: IRecipeCategory | null;
   ingredientquantities?: IIngredientQuantity[] | null;
   tools?: ITool[] | null;
@@ -18,6 +19,7 @@ export class Recipe implements IRecipe {
     public name?: string,
     public time?: number | null,
     public description?: string,
+    public diners?: number,
     public recipecategory?: IRecipeCategory | null,
     public ingredientquantities?: IIngredientQuantity[] | null,
     public tools?: ITool[] | null

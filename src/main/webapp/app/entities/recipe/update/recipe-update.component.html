@@ -49,6 +49,19 @@
         </div>
 
         <div class="row mb-3">
+          <label class="form-label" jhiTranslate="helpMeChefApp.recipe.diners" for="field_diners">Diners</label>
+          <input type="number" class="form-control" name="diners" id="field_diners" data-cy="diners" formControlName="diners" />
+          <div *ngIf="editForm.get('diners')!.invalid && (editForm.get('diners')!.dirty || editForm.get('diners')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('diners')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('diners')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="helpMeChefApp.recipe.recipecategory" for="field_recipecategory">Recipecategory</label>
           <select
             class="form-control"

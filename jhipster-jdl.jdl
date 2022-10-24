@@ -16,7 +16,8 @@ entity IngredientQuantity {
 entity Recipe{
 	name String required,
     time Double,
-    description TextBlob required
+    description TextBlob required,
+    diners Integer required,
 }
 
 entity Pantry {

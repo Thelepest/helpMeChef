@@ -32,6 +32,8 @@ public class RecipeCriteria implements Serializable, Criteria {
 
     private DoubleFilter time;
 
+    private IntegerFilter diners;
+
     private LongFilter recipecategoryId;
 
     private LongFilter ingredientquantityId;
@@ -46,6 +48,7 @@ public class RecipeCriteria implements Serializable, Criteria {
         this.id = other.id == null ? null : other.id.copy();
         this.name = other.name == null ? null : other.name.copy();
         this.time = other.time == null ? null : other.time.copy();
+        this.diners = other.diners == null ? null : other.diners.copy();
         this.recipecategoryId = other.recipecategoryId == null ? null : other.recipecategoryId.copy();
         this.ingredientquantityId = other.ingredientquantityId == null ? null : other.ingredientquantityId.copy();
         this.toolId = other.toolId == null ? null : other.toolId.copy();
@@ -100,6 +103,21 @@ public class RecipeCriteria implements Serializable, Criteria {
 
     public void setTime(DoubleFilter time) {
         this.time = time;
+    }
+
+    public IntegerFilter getDiners() {
+        return diners;
+    }
+
+    public IntegerFilter diners() {
+        if (diners == null) {
+            diners = new IntegerFilter();
+        }
+        return diners;
+    }
+
+    public void setDiners(IntegerFilter diners) {
+        this.diners = diners;
     }
 
     public LongFilter getRecipecategoryId() {
@@ -168,6 +186,7 @@ public class RecipeCriteria implements Serializable, Criteria {
             Objects.equals(id, that.id) &&
             Objects.equals(name, that.name) &&
             Objects.equals(time, that.time) &&
+            Objects.equals(diners, that.diners) &&
             Objects.equals(recipecategoryId, that.recipecategoryId) &&
             Objects.equals(ingredientquantityId, that.ingredientquantityId) &&
             Objects.equals(toolId, that.toolId) &&
@@ -177,7 +196,7 @@ public class RecipeCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, time, recipecategoryId, ingredientquantityId, toolId, distinct);
+        return Objects.hash(id, name, time, diners, recipecategoryId, ingredientquantityId, toolId, distinct);
     }
 
     // prettier-ignore
@@ -187,6 +206,7 @@ public class RecipeCriteria implements Serializable, Criteria {
             (id != null ? "id=" + id + ", " : "") +
             (name != null ? "name=" + name + ", " : "") +
             (time != null ? "time=" + time + ", " : "") +
+            (diners != null ? "diners=" + diners + ", " : "") +
             (recipecategoryId != null ? "recipecategoryId=" + recipecategoryId + ", " : "") +
             (ingredientquantityId != null ? "ingredientquantityId=" + ingredientquantityId + ", " : "") +
             (toolId != null ? "toolId=" + toolId + ", " : "") +

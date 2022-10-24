@@ -91,6 +91,9 @@ public class RecipeQueryService extends QueryService<Recipe> {
             if (criteria.getTime() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getTime(), Recipe_.time));
             }
+            if (criteria.getDiners() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getDiners(), Recipe_.diners));
+            }
             if (criteria.getRecipecategoryId() != null) {
                 specification =
                     specification.and(

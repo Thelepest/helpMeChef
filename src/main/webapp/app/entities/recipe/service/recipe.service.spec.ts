@@ -24,6 +24,7 @@ describe('Recipe Service', () => {
       name: 'AAAAAAA',
       time: 0,
       description: 'AAAAAAA',
+      diners: 0,
     };
   });
 
@@ -62,6 +63,7 @@ describe('Recipe Service', () => {
           name: 'BBBBBB',
           time: 1,
           description: 'BBBBBB',
+          diners: 1,
         },
         elemDefault
       );
@@ -81,6 +83,7 @@ describe('Recipe Service', () => {
           name: 'BBBBBB',
           time: 1,
           description: 'BBBBBB',
+          diners: 1,
         },
         new Recipe()
       );
@@ -103,6 +106,7 @@ describe('Recipe Service', () => {
           name: 'BBBBBB',
           time: 1,
           description: 'BBBBBB',
+          diners: 1,
         },
         elemDefault
       );
@@ -154,7 +158,7 @@ describe('Recipe Service', () => {
       });
 
       it('should add only unique Recipe to an array', () => {
-        const recipeArray: IRecipe[] = [{ id: 123 }, { id: 456 }, { id: 58184 }];
+        const recipeArray: IRecipe[] = [{ id: 123 }, { id: 456 }, { id: 62134 }];
         const recipeCollection: IRecipe[] = [{ id: 123 }];
         expectedResult = service.addRecipeToCollectionIfMissing(recipeCollection, ...recipeArray);
         expect(expectedResult).toHaveLength(3);

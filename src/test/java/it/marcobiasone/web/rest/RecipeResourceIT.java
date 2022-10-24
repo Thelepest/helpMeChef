@@ -54,6 +54,10 @@ class RecipeResourceIT {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
+    private static final Integer DEFAULT_DINERS = 1;
+    private static final Integer UPDATED_DINERS = 2;
+    private static final Integer SMALLER_DINERS = 1 - 1;
+
     private static final String ENTITY_API_URL = "/api/recipes";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -84,7 +88,7 @@ class RecipeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Recipe createEntity(EntityManager em) {
-        Recipe recipe = new Recipe().name(DEFAULT_NAME).time(DEFAULT_TIME).description(DEFAULT_DESCRIPTION);
+        Recipe recipe = new Recipe().name(DEFAULT_NAME).time(DEFAULT_TIME).description(DEFAULT_DESCRIPTION).diners(DEFAULT_DINERS);
         return recipe;
     }
 
@@ -95,7 +99,7 @@ class RecipeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Recipe createUpdatedEntity(EntityManager em) {
-        Recipe recipe = new Recipe().name(UPDATED_NAME).time(UPDATED_TIME).description(UPDATED_DESCRIPTION);
+        Recipe recipe = new Recipe().name(UPDATED_NAME).time(UPDATED_TIME).description(UPDATED_DESCRIPTION).diners(UPDATED_DINERS);
         return recipe;
     }
 
@@ -122,6 +126,7 @@ class RecipeResourceIT {
         assertThat(testRecipe.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testRecipe.getTime()).isEqualTo(DEFAULT_TIME);
         assertThat(testRecipe.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testRecipe.getDiners()).isEqualTo(DEFAULT_DINERS);
     }
 
     @Test
@@ -165,6 +170,25 @@ class RecipeResourceIT {
 
     @Test
     @Transactional
+    void checkDinersIsRequired() throws Exception {
+        int databaseSizeBeforeTest = recipeRepository.findAll().size();
+        // set the field null
+        recipe.setDiners(null);
+
+        // Create the Recipe, which fails.
+
+        restRecipeMockMvc
+            .perform(
+                post(ENTITY_API_URL).with(csrf()).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(recipe))
+            )
+            .andExpect(status().isBadRequest());
+
+        List<Recipe> recipeList = recipeRepository.findAll();
+        assertThat(recipeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllRecipes() throws Exception {
         // Initialize the database
         recipeRepository.saveAndFlush(recipe);
@@ -177,7 +201,8 @@ class RecipeResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(recipe.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].time").value(hasItem(DEFAULT_TIME.doubleValue())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].diners").value(hasItem(DEFAULT_DINERS)));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -212,7 +237,8 @@ class RecipeResourceIT {
             .andExpect(jsonPath("$.id").value(recipe.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.time").value(DEFAULT_TIME.doubleValue()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.diners").value(DEFAULT_DINERS));
     }
 
     @Test
@@ -417,6 +443,110 @@ class RecipeResourceIT {
 
     @Test
     @Transactional
+    void getAllRecipesByDinersIsEqualToSomething() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners equals to DEFAULT_DINERS
+        defaultRecipeShouldBeFound("diners.equals=" + DEFAULT_DINERS);
+
+        // Get all the recipeList where diners equals to UPDATED_DINERS
+        defaultRecipeShouldNotBeFound("diners.equals=" + UPDATED_DINERS);
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners not equals to DEFAULT_DINERS
+        defaultRecipeShouldNotBeFound("diners.notEquals=" + DEFAULT_DINERS);
+
+        // Get all the recipeList where diners not equals to UPDATED_DINERS
+        defaultRecipeShouldBeFound("diners.notEquals=" + UPDATED_DINERS);
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsInShouldWork() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners in DEFAULT_DINERS or UPDATED_DINERS
+        defaultRecipeShouldBeFound("diners.in=" + DEFAULT_DINERS + "," + UPDATED_DINERS);
+
+        // Get all the recipeList where diners equals to UPDATED_DINERS
+        defaultRecipeShouldNotBeFound("diners.in=" + UPDATED_DINERS);
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners is not null
+        defaultRecipeShouldBeFound("diners.specified=true");
+
+        // Get all the recipeList where diners is null
+        defaultRecipeShouldNotBeFound("diners.specified=false");
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsGreaterThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners is greater than or equal to DEFAULT_DINERS
+        defaultRecipeShouldBeFound("diners.greaterThanOrEqual=" + DEFAULT_DINERS);
+
+        // Get all the recipeList where diners is greater than or equal to UPDATED_DINERS
+        defaultRecipeShouldNotBeFound("diners.greaterThanOrEqual=" + UPDATED_DINERS);
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsLessThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners is less than or equal to DEFAULT_DINERS
+        defaultRecipeShouldBeFound("diners.lessThanOrEqual=" + DEFAULT_DINERS);
+
+        // Get all the recipeList where diners is less than or equal to SMALLER_DINERS
+        defaultRecipeShouldNotBeFound("diners.lessThanOrEqual=" + SMALLER_DINERS);
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsLessThanSomething() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners is less than DEFAULT_DINERS
+        defaultRecipeShouldNotBeFound("diners.lessThan=" + DEFAULT_DINERS);
+
+        // Get all the recipeList where diners is less than UPDATED_DINERS
+        defaultRecipeShouldBeFound("diners.lessThan=" + UPDATED_DINERS);
+    }
+
+    @Test
+    @Transactional
+    void getAllRecipesByDinersIsGreaterThanSomething() throws Exception {
+        // Initialize the database
+        recipeRepository.saveAndFlush(recipe);
+
+        // Get all the recipeList where diners is greater than DEFAULT_DINERS
+        defaultRecipeShouldNotBeFound("diners.greaterThan=" + DEFAULT_DINERS);
+
+        // Get all the recipeList where diners is greater than SMALLER_DINERS
+        defaultRecipeShouldBeFound("diners.greaterThan=" + SMALLER_DINERS);
+    }
+
+    @Test
+    @Transactional
     void getAllRecipesByRecipecategoryIsEqualToSomething() throws Exception {
         // Initialize the database
         recipeRepository.saveAndFlush(recipe);
@@ -504,7 +634,8 @@ class RecipeResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(recipe.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].time").value(hasItem(DEFAULT_TIME.doubleValue())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].diners").value(hasItem(DEFAULT_DINERS)));
 
         // Check, that the count call also returns 1
         restRecipeMockMvc
@@ -552,7 +683,7 @@ class RecipeResourceIT {
         Recipe updatedRecipe = recipeRepository.findById(recipe.getId()).get();
         // Disconnect from session so that the updates on updatedRecipe are not directly saved in db
         em.detach(updatedRecipe);
-        updatedRecipe.name(UPDATED_NAME).time(UPDATED_TIME).description(UPDATED_DESCRIPTION);
+        updatedRecipe.name(UPDATED_NAME).time(UPDATED_TIME).description(UPDATED_DESCRIPTION).diners(UPDATED_DINERS);
 
         restRecipeMockMvc
             .perform(
@@ -570,6 +701,7 @@ class RecipeResourceIT {
         assertThat(testRecipe.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testRecipe.getTime()).isEqualTo(UPDATED_TIME);
         assertThat(testRecipe.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testRecipe.getDiners()).isEqualTo(UPDATED_DINERS);
     }
 
     @Test
@@ -662,6 +794,7 @@ class RecipeResourceIT {
         assertThat(testRecipe.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testRecipe.getTime()).isEqualTo(UPDATED_TIME);
         assertThat(testRecipe.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testRecipe.getDiners()).isEqualTo(DEFAULT_DINERS);
     }
 
     @Test
@@ -676,7 +809,7 @@ class RecipeResourceIT {
         Recipe partialUpdatedRecipe = new Recipe();
         partialUpdatedRecipe.setId(recipe.getId());
 
-        partialUpdatedRecipe.name(UPDATED_NAME).time(UPDATED_TIME).description(UPDATED_DESCRIPTION);
+        partialUpdatedRecipe.name(UPDATED_NAME).time(UPDATED_TIME).description(UPDATED_DESCRIPTION).diners(UPDATED_DINERS);
 
         restRecipeMockMvc
             .perform(
@@ -694,6 +827,7 @@ class RecipeResourceIT {
         assertThat(testRecipe.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testRecipe.getTime()).isEqualTo(UPDATED_TIME);
         assertThat(testRecipe.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testRecipe.getDiners()).isEqualTo(UPDATED_DINERS);
     }
 
     @Test

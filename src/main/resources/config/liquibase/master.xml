@@ -27,6 +27,7 @@
     <include file="config/liquibase/changelog/20221020145750_added_entity_MyConfig.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221020145751_added_entity_Comment.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221021093955_alter_entity_Recipe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221024093900_alter_entity_Recipe.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20221020145741_added_entity_constraints_Ingredient.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221020145743_added_entity_constraints_IngredientQuantity.xml" relativeToChangelogFile="false"/>

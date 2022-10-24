@@ -36,6 +36,7 @@
           <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.name">Name</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.time">Time</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.diners">Diners</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.recipecategory">Recipecategory</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.ingredientquantity">Ingredientquantity</span></th>
           <th scope="col"><span jhiTranslate="helpMeChefApp.recipe.tool">Tool</span></th>
@@ -50,6 +51,7 @@
           <td>{{ recipe.name }}</td>
           <td>{{ recipe.time }}</td>
           <td>{{ recipe.description }}</td>
+          <td>{{ recipe.diners }}</td>
           <td>
             <div *ngIf="recipe.recipecategory">
               <a [routerLink]="['/recipe-category', recipe.recipecategory?.id, 'view']">{{ recipe.recipecategory?.name }}</a>
