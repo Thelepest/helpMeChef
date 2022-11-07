@@ -6,8 +6,6 @@
   <div class="col-lg-4">
     <p class="lead" jhiTranslate="home.subtitle">Hungry and poor of ideas? You're on the right place!</p>
     <h1 class="display-4"><span jhiTranslate="home.title">Welcome on Help Me Chef!</span></h1>
-    <!-- <p class="lead" jhiTranslate="home.subtitle2">This is your homepage</p> -->
-
     <div [ngSwitch]="account !== null">
       <div class="alert alert-success" *ngSwitchCase="true">
         <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
@@ -26,3 +24,4 @@
     </div>
   </div>
 </div>
+<div class="row justify-content-center" *jhiHasAnyAuthority="['ROLE_USER']">INIZIA DA QUI!</div>
