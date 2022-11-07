@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   account: Account | null = null;
+  checked = true;
 
   constructor(private accountService: AccountService, private loginService: LoginService,
     protected activatedRoute: ActivatedRoute,
