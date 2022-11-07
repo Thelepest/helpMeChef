@@ -7,8 +7,7 @@ import { RecipeDeleteDialogComponent } from './delete/recipe-delete-dialog.compo
 import { RecipeRoutingModule } from './route/recipe-routing.module';
 
 @NgModule({
-  imports: [SharedModule, RecipeRoutingModule],
-  declarations: [RecipeComponent, RecipeDetailComponent, RecipeUpdateComponent, RecipeDeleteDialogComponent],
-  entryComponents: [RecipeDeleteDialogComponent],
+    imports: [SharedModule, RecipeRoutingModule],
+    declarations: [RecipeComponent, RecipeDetailComponent, RecipeUpdateComponent, RecipeDeleteDialogComponent]
 })
 export class RecipeModule {}

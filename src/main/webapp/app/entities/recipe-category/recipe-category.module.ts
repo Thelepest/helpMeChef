@@ -7,13 +7,12 @@ import { RecipeCategoryDeleteDialogComponent } from './delete/recipe-category-de
 import { RecipeCategoryRoutingModule } from './route/recipe-category-routing.module';
 
 @NgModule({
-  imports: [SharedModule, RecipeCategoryRoutingModule],
-  declarations: [
-    RecipeCategoryComponent,
-    RecipeCategoryDetailComponent,
-    RecipeCategoryUpdateComponent,
-    RecipeCategoryDeleteDialogComponent,
-  ],
-  entryComponents: [RecipeCategoryDeleteDialogComponent],
+    imports: [SharedModule, RecipeCategoryRoutingModule],
+    declarations: [
+        RecipeCategoryComponent,
+        RecipeCategoryDetailComponent,
+        RecipeCategoryUpdateComponent,
+        RecipeCategoryDeleteDialogComponent,
+    ]
 })
 export class RecipeCategoryModule {}

@@ -7,8 +7,7 @@ import { QuantityDeleteDialogComponent } from './delete/quantity-delete-dialog.c
 import { QuantityRoutingModule } from './route/quantity-routing.module';
 
 @NgModule({
-  imports: [SharedModule, QuantityRoutingModule],
-  declarations: [QuantityComponent, QuantityDetailComponent, QuantityUpdateComponent, QuantityDeleteDialogComponent],
-  entryComponents: [QuantityDeleteDialogComponent],
+    imports: [SharedModule, QuantityRoutingModule],
+    declarations: [QuantityComponent, QuantityDetailComponent, QuantityUpdateComponent, QuantityDeleteDialogComponent]
 })
 export class QuantityModule {}

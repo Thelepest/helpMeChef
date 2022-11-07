@@ -7,8 +7,7 @@ import { PantryDeleteDialogComponent } from './delete/pantry-delete-dialog.compo
 import { PantryRoutingModule } from './route/pantry-routing.module';
 
 @NgModule({
-  imports: [SharedModule, PantryRoutingModule],
-  declarations: [PantryComponent, PantryDetailComponent, PantryUpdateComponent, PantryDeleteDialogComponent],
-  entryComponents: [PantryDeleteDialogComponent],
+    imports: [SharedModule, PantryRoutingModule],
+    declarations: [PantryComponent, PantryDetailComponent, PantryUpdateComponent, PantryDeleteDialogComponent]
 })
 export class PantryModule {}

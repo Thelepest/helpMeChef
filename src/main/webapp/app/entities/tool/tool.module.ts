@@ -7,8 +7,7 @@ import { ToolDeleteDialogComponent } from './delete/tool-delete-dialog.component
 import { ToolRoutingModule } from './route/tool-routing.module';
 
 @NgModule({
-  imports: [SharedModule, ToolRoutingModule],
-  declarations: [ToolComponent, ToolDetailComponent, ToolUpdateComponent, ToolDeleteDialogComponent],
-  entryComponents: [ToolDeleteDialogComponent],
+    imports: [SharedModule, ToolRoutingModule],
+    declarations: [ToolComponent, ToolDetailComponent, ToolUpdateComponent, ToolDeleteDialogComponent]
 })
 export class ToolModule {}

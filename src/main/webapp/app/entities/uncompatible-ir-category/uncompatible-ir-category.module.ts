@@ -7,13 +7,12 @@ import { UncompatibleIRCategoryDeleteDialogComponent } from './delete/uncompatib
 import { UncompatibleIRCategoryRoutingModule } from './route/uncompatible-ir-category-routing.module';
 
 @NgModule({
-  imports: [SharedModule, UncompatibleIRCategoryRoutingModule],
-  declarations: [
-    UncompatibleIRCategoryComponent,
-    UncompatibleIRCategoryDetailComponent,
-    UncompatibleIRCategoryUpdateComponent,
-    UncompatibleIRCategoryDeleteDialogComponent,
-  ],
-  entryComponents: [UncompatibleIRCategoryDeleteDialogComponent],
+    imports: [SharedModule, UncompatibleIRCategoryRoutingModule],
+    declarations: [
+        UncompatibleIRCategoryComponent,
+        UncompatibleIRCategoryDetailComponent,
+        UncompatibleIRCategoryUpdateComponent,
+        UncompatibleIRCategoryDeleteDialogComponent,
+    ]
 })
 export class UncompatibleIRCategoryModule {}

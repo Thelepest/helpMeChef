@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -21,7 +21,7 @@ export class ToolUpdateComponent implements OnInit {
     description: [],
   });
 
-  constructor(protected toolService: ToolService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
+  constructor(protected toolService: ToolService, protected activatedRoute: ActivatedRoute, protected fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ tool }) => {

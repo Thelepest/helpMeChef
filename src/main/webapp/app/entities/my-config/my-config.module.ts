@@ -7,8 +7,7 @@ import { MyConfigDeleteDialogComponent } from './delete/my-config-delete-dialog.
 import { MyConfigRoutingModule } from './route/my-config-routing.module';
 
 @NgModule({
-  imports: [SharedModule, MyConfigRoutingModule],
-  declarations: [MyConfigComponent, MyConfigDetailComponent, MyConfigUpdateComponent, MyConfigDeleteDialogComponent],
-  entryComponents: [MyConfigDeleteDialogComponent],
+    imports: [SharedModule, MyConfigRoutingModule],
+    declarations: [MyConfigComponent, MyConfigDetailComponent, MyConfigUpdateComponent, MyConfigDeleteDialogComponent]
 })
 export class MyConfigModule {}

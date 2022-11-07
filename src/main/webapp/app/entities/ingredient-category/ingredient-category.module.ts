@@ -7,13 +7,12 @@ import { IngredientCategoryDeleteDialogComponent } from './delete/ingredient-cat
 import { IngredientCategoryRoutingModule } from './route/ingredient-category-routing.module';
 
 @NgModule({
-  imports: [SharedModule, IngredientCategoryRoutingModule],
-  declarations: [
-    IngredientCategoryComponent,
-    IngredientCategoryDetailComponent,
-    IngredientCategoryUpdateComponent,
-    IngredientCategoryDeleteDialogComponent,
-  ],
-  entryComponents: [IngredientCategoryDeleteDialogComponent],
+    imports: [SharedModule, IngredientCategoryRoutingModule],
+    declarations: [
+        IngredientCategoryComponent,
+        IngredientCategoryDetailComponent,
+        IngredientCategoryUpdateComponent,
+        IngredientCategoryDeleteDialogComponent,
+    ]
 })
 export class IngredientCategoryModule {}

@@ -98,7 +98,6 @@
       }
     }
   },
-  "defaultProject": "help-me-chef",
   "cli": {
     "cache": {
       "enabled": true,

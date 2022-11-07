@@ -7,8 +7,7 @@ import { IngredientDeleteDialogComponent } from './delete/ingredient-delete-dial
 import { IngredientRoutingModule } from './route/ingredient-routing.module';
 
 @NgModule({
-  imports: [SharedModule, IngredientRoutingModule],
-  declarations: [IngredientComponent, IngredientDetailComponent, IngredientUpdateComponent, IngredientDeleteDialogComponent],
-  entryComponents: [IngredientDeleteDialogComponent],
+    imports: [SharedModule, IngredientRoutingModule],
+    declarations: [IngredientComponent, IngredientDetailComponent, IngredientUpdateComponent, IngredientDeleteDialogComponent]
 })
 export class IngredientModule {}

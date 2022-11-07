@@ -7,13 +7,12 @@ import { IngredientQuantityDeleteDialogComponent } from './delete/ingredient-qua
 import { IngredientQuantityRoutingModule } from './route/ingredient-quantity-routing.module';
 
 @NgModule({
-  imports: [SharedModule, IngredientQuantityRoutingModule],
-  declarations: [
-    IngredientQuantityComponent,
-    IngredientQuantityDetailComponent,
-    IngredientQuantityUpdateComponent,
-    IngredientQuantityDeleteDialogComponent,
-  ],
-  entryComponents: [IngredientQuantityDeleteDialogComponent],
+    imports: [SharedModule, IngredientQuantityRoutingModule],
+    declarations: [
+        IngredientQuantityComponent,
+        IngredientQuantityDetailComponent,
+        IngredientQuantityUpdateComponent,
+        IngredientQuantityDeleteDialogComponent,
+    ]
 })
 export class IngredientQuantityModule {}

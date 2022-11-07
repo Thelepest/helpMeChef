@@ -7,8 +7,7 @@ import { CommentDeleteDialogComponent } from './delete/comment-delete-dialog.com
 import { CommentRoutingModule } from './route/comment-routing.module';
 
 @NgModule({
-  imports: [SharedModule, CommentRoutingModule],
-  declarations: [CommentComponent, CommentDetailComponent, CommentUpdateComponent, CommentDeleteDialogComponent],
-  entryComponents: [CommentDeleteDialogComponent],
+    imports: [SharedModule, CommentRoutingModule],
+    declarations: [CommentComponent, CommentDetailComponent, CommentUpdateComponent, CommentDeleteDialogComponent]
 })
 export class CommentModule {}
