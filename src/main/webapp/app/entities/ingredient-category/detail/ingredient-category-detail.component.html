@@ -26,11 +26,10 @@
             <a (click)="openFile(ingredientCategory.image, ingredientCategory.imageContentType)">
               <img
                 [src]="'data:' + ingredientCategory.imageContentType + ';base64,' + ingredientCategory.image"
-                style="max-width: 100%"
+                style="max-width: 100px"
                 alt="ingredientCategory image"
               />
             </a>
-            {{ ingredientCategory.imageContentType }}, {{ byteSize(ingredientCategory.image) }}
           </div>
         </dd>
         <dt><span jhiTranslate="helpMeChefApp.ingredientCategory.description">Description</span></dt>

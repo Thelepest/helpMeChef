@@ -29,15 +29,14 @@
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="helpMeChefApp.ingredientCategory.image" for="field_image">Image</label>
-          <div>
+          <div class="row">
             <img
               [src]="'data:' + editForm.get('imageContentType')!.value + ';base64,' + editForm.get('image')!.value"
-              style="max-height: 100px"
+              style="max-width: 100px"
               *ngIf="editForm.get('image')!.value"
               alt="ingredientCategory image"
             />
             <div *ngIf="editForm.get('image')!.value" class="form-text text-danger clearfix">
-              <span class="pull-start">{{ editForm.get('imageContentType')!.value }}, {{ byteSize(editForm.get('image')!.value) }}</span>
               <button
                 type="button"
                 (click)="clearInputImage('image', 'imageContentType', 'file_image')"
