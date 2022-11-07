@@ -4,16 +4,6 @@
     "subtitle": "Poche idee e tanta fame? Sei nel posto giusto!",
     "logged": {
       "message": "Autenticato come \"{{username}}\"."
-    },
-    "question": "In caso di domande su JHipster:",
-    "link": {
-      "homepage": "Homepage JHipster",
-      "stackoverflow": "JHipster su Stack Overflow",
-      "bugtracker": "JHipster tracciamento errori",
-      "chat": "Chat room pubblica di JHipster",
-      "follow": "segui @jhipster su Twitter"
-    },
-    "like": "Se ti piace JHipster, non dimenticarti di darci una stella su",
-    "github": "GitHub"
+    }
   }
 }

@@ -2,29 +2,29 @@
   "helpMeChefApp": {
     "recipe": {
       "home": {
-        "title": "Recipes",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Recipe",
-        "createOrEditLabel": "Genera o modifica un Recipe",
-        "notFound": "No Recipes found"
+        "title": "Ricette",
+        "refreshListLabel": "Aggiorna Lista",
+        "createLabel": "Genera una nuova ricetta",
+        "createOrEditLabel": "Genera o modifica una ricetta",
+        "notFound": "Nessuna ricetta trovata"
       },
-      "created": "&Egrave; stato generato un nuovo Recipe con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Recipe identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Recipe con identificatore {{ param }}",
+      "created": "&Egrave; stata generata una nuova ricetta con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata la ricetta identificata da {{ param }}",
+      "deleted": "&Egrave; stata eliminata la ricetta con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Recipe {{ id }}?"
+        "question": "Sei sicuro di volere eliminare la ricetta {{ id }}?"
       },
       "detail": {
-        "title": "Recipe"
+        "title": "Ricetta"
       },
       "id": "ID",
-      "name": "Name",
-      "time": "Time",
-      "description": "Description",
-      "diners": "Diners",
-      "recipecategory": "Recipecategory",
-      "ingredientquantity": "Ingredientquantity",
-      "tool": "Tool"
+      "name": "Nome",
+      "time": "Tempo",
+      "description": "Descrizione",
+      "diners": "Persone",
+      "recipecategory": "Categoria Ricetta",
+      "ingredientquantity": "Ingredienti e Quantità",
+      "tool": "Strumenti"
     }
   }
 }

@@ -2,26 +2,26 @@
   "helpMeChefApp": {
     "ingredient": {
       "home": {
-        "title": "Ingredients",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Ingredient",
-        "createOrEditLabel": "Genera o modifica un Ingredient",
-        "notFound": "No Ingredients found"
+        "title": "Ingredienti",
+        "refreshListLabel": "Aggiorna lista",
+        "createLabel": "Genera un nuovo ingrediente",
+        "createOrEditLabel": "Genera o modifica un ingrediente",
+        "notFound": "Nessun ingrediente trovato"
       },
-      "created": "&Egrave; stato generato un nuovo Ingredient con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Ingredient identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Ingredient con identificatore {{ param }}",
+      "created": "&Egrave; stato generato un nuovo ingrediente con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato l'ingrediente identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato l'ingrediente con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Ingredient {{ id }}?"
+        "question": "Sei sicuro di volere eliminare l'ingrediente {{ id }}?"
       },
       "detail": {
-        "title": "Ingredient"
+        "title": "Ingrediente"
       },
       "id": "ID",
-      "name": "Name",
-      "image": "Image",
-      "ingredientcategory": "Ingredientcategory",
-      "parent": "Parent"
+      "name": "Nome",
+      "image": "Immagine",
+      "ingredientcategory": "Categoria Ingrediente",
+      "parent": "Sottocategoria"
     }
   }
 }

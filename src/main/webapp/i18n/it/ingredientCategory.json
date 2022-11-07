@@ -2,25 +2,25 @@
   "helpMeChefApp": {
     "ingredientCategory": {
       "home": {
-        "title": "IngredientCategories",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Ingredient Category",
-        "createOrEditLabel": "Genera o modifica un Ingredient Category",
-        "notFound": "No Ingredient Categories found"
+        "title": "Categorie Ingredienti",
+        "refreshListLabel": "Aggiorna lista",
+        "createLabel": "Genera una nuova categoria ingredienti",
+        "createOrEditLabel": "Genera o modifica una categoria ingredienti",
+        "notFound": "Nessuna categoria ingredienti trovata"
       },
-      "created": "&Egrave; stato generato un nuovo Ingredient Category con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Ingredient Category identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Ingredient Category con identificatore {{ param }}",
+      "created": "&Egrave; stata generata una nuova categoria ingredienti con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata la categoria ingredienti identificato da {{ param }}",
+      "deleted": "&Egrave; stata eliminata la categoria ingredienti con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Ingredient Category {{ id }}?"
+        "question": "Sei sicuro di volere eliminare la categoria ingredienti {{ id }}?"
       },
       "detail": {
-        "title": "Ingredient Category"
+        "title": "Categoria Ingredienti"
       },
       "id": "ID",
-      "name": "Name",
-      "image": "Image",
-      "description": "Description"
+      "name": "Nome",
+      "image": "Immagine",
+      "description": "Descrizione"
     }
   }
 }

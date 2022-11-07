@@ -2,26 +2,26 @@
   "helpMeChefApp": {
     "ingredientQuantity": {
       "home": {
-        "title": "IngredientQuantities",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Ingredient Quantity",
-        "createOrEditLabel": "Genera o modifica un Ingredient Quantity",
-        "notFound": "No Ingredient Quantities found"
+        "title": "Quantità Ingredienti",
+        "refreshListLabel": "Aggiorna lista",
+        "createLabel": "Genera una nuova quantità ingredienti",
+        "createOrEditLabel": "Genera o modifica una quantità ingredienti",
+        "notFound": "Nessuna quantità ingredienti trovata"
       },
-      "created": "&Egrave; stato generato un nuovo Ingredient Quantity con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Ingredient Quantity identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Ingredient Quantity con identificatore {{ param }}",
+      "created": "&Egrave; stata generata una nuova quantità ingredienti con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata la quantità ingredienti identificata da {{ param }}",
+      "deleted": "&Egrave; stata eliminata la quantità ingredienti con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Ingredient Quantity {{ id }}?"
+        "question": "Sei sicuro di volere eliminare la quantità ingredienti {{ id }}?"
       },
       "detail": {
-        "title": "Ingredient Quantity"
+        "title": "Quantità Ingredienti"
       },
       "id": "ID",
-      "ingredient": "Ingredient",
-      "quantity": "Quantity",
-      "pantry": "Pantry",
-      "recipe": "Recipe"
+      "ingredient": "Ingrediente",
+      "quantity": "Quantità",
+      "pantry": "Dispensa",
+      "recipe": "Ricetta"
     }
   }
 }

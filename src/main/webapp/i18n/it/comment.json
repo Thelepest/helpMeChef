@@ -2,26 +2,26 @@
   "helpMeChefApp": {
     "comment": {
       "home": {
-        "title": "Comments",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Comment",
-        "createOrEditLabel": "Genera o modifica un Comment",
-        "notFound": "No Comments found"
+        "title": "Commenti",
+        "refreshListLabel": "Aggiorna lista",
+        "createLabel": "Genera un nuovo commento",
+        "createOrEditLabel": "Genera o modifica un commento",
+        "notFound": "Nessun commento trovato"
       },
-      "created": "&Egrave; stato generato un nuovo Comment con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Comment identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Comment con identificatore {{ param }}",
+      "created": "&Egrave; stato generato un nuovo commento con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato il commento identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato il commento con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Comment {{ id }}?"
+        "question": "Sei sicuro di volere eliminare il commento {{ id }}?"
       },
       "detail": {
-        "title": "Comment"
+        "title": "Commento"
       },
       "id": "ID",
-      "title": "Title",
-      "body": "Body",
+      "title": "Titolo",
+      "body": "Contenuto",
       "user": "User",
-      "recipe": "Recipe"
+      "recipe": "Ricetta commentata"
     }
   }
 }

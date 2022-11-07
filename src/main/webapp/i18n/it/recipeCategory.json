@@ -2,25 +2,25 @@
   "helpMeChefApp": {
     "recipeCategory": {
       "home": {
-        "title": "RecipeCategories",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Recipe Category",
-        "createOrEditLabel": "Genera o modifica un Recipe Category",
-        "notFound": "No Recipe Categories found"
+        "title": "Categorie Ricette",
+        "refreshListLabel": "Aggiorna Lista",
+        "createLabel": "Genera una nuova categoria ricette",
+        "createOrEditLabel": "Genera o modifica una categoria ricette",
+        "notFound": "Nessuna categoria ricette trovata"
       },
-      "created": "&Egrave; stato generato un nuovo Recipe Category con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Recipe Category identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Recipe Category con identificatore {{ param }}",
+      "created": "&Egrave; stata generata una nuova categoria ricette con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata la categoria ricette identificato da {{ param }}",
+      "deleted": "&Egrave; stata eliminata la categoria ricette con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Recipe Category {{ id }}?"
+        "question": "Sei sicuro di volere eliminare la categoria ricette {{ id }}?"
       },
       "detail": {
-        "title": "Recipe Category"
+        "title": "Categoria Ricette"
       },
       "id": "ID",
-      "name": "Name",
-      "image": "Image",
-      "description": "Description"
+      "name": "Nome",
+      "image": "Immagine",
+      "description": "Descrizione"
     }
   }
 }

@@ -2,24 +2,24 @@
   "helpMeChefApp": {
     "uncompatibleIRCategory": {
       "home": {
-        "title": "UncompatibleIRCategories",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Uncompatible IR Category",
-        "createOrEditLabel": "Genera o modifica un Uncompatible IR Category",
-        "notFound": "No Uncompatible IR Categories found"
+        "title": "Categorie I-R Non Compatibili",
+        "refreshListLabel": "Aggiorna Lista",
+        "createLabel": "Genera una nuova categoria I-R non compatibile",
+        "createOrEditLabel": "Genera o modifica una categoria I-R non compatibile",
+        "notFound": "Nessuna categoria I-R non compatibile trovata"
       },
-      "created": "&Egrave; stato generato un nuovo Uncompatible IR Category con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Uncompatible IR Category identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Uncompatible IR Category con identificatore {{ param }}",
+      "created": "&Egrave; stata generata una nuova categoria I-R non compatibile con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata la categoria I-R non compatibile identificato da {{ param }}",
+      "deleted": "&Egrave; stata eliminata la categoria I-R non compatibile con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Uncompatible IR Category {{ id }}?"
+        "question": "Sei sicuro di volere eliminare la categoria I-R non compatibile {{ id }}?"
       },
       "detail": {
-        "title": "Uncompatible IR Category"
+        "title": "Categoria I-R Non Compatibile"
       },
       "id": "ID",
-      "ingredientcategory": "Ingredientcategory",
-      "recipecategory": "Recipecategory"
+      "ingredientcategory": "Categoria Ingrediente",
+      "recipecategory": "Categoria Ricetta"
     }
   }
 }

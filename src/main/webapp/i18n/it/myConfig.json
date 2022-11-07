@@ -2,24 +2,24 @@
   "helpMeChefApp": {
     "myConfig": {
       "home": {
-        "title": "MyConfigs",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo My Config",
-        "createOrEditLabel": "Genera o modifica un My Config",
-        "notFound": "No My Configs found"
+        "title": "Parametri di Configurazione",
+        "refreshListLabel": "Aggiorna Lista",
+        "createLabel": "Genera un nuovo parametro di configurazione",
+        "createOrEditLabel": "Genera o modifica un parametro di configurazione",
+        "notFound": "Nessun parametro di configurazione trovato"
       },
-      "created": "&Egrave; stato generato un nuovo My Config con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato My Config identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato My Config con identificatore {{ param }}",
+      "created": "&Egrave; stato generato un nuovo parametro di configurazione con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato un parametro di configurazione identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato un parametro di configurazione con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare My Config {{ id }}?"
+        "question": "Sei sicuro di volere eliminare il parametro di configurazione {{ id }}?"
       },
       "detail": {
-        "title": "My Config"
+        "title": "Parametro di Configurazione"
       },
       "id": "ID",
-      "mcKey": "Mc Key",
-      "mcValue": "Mc Value"
+      "mcKey": "Chiave Parametro",
+      "mcValue": "Valore Parametro"
     }
   }
 }

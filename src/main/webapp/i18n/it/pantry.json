@@ -2,28 +2,28 @@
   "helpMeChefApp": {
     "pantry": {
       "home": {
-        "title": "Pantries",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Genera un nuovo Pantry",
+        "title": "Dispense",
+        "refreshListLabel": "Aggiorna Lista",
+        "createLabel": "Genera una nuova dispensa",
         "createOrEditLabel": "Genera o modifica un Pantry",
-        "notFound": "No Pantries found"
+        "notFound": "Nessuna dispensa trovata"
       },
-      "created": "&Egrave; stato generato un nuovo Pantry con identificatore {{ param }}",
-      "updated": "&Egrave; stato aggiornato Pantry identificato da {{ param }}",
-      "deleted": "&Egrave; stato eliminato Pantry con identificatore {{ param }}",
+      "created": "&Egrave; stata generata una nuova dispensa con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata la dispensa identificato da {{ param }}",
+      "deleted": "&Egrave; stata eliminata la dispensa con identificatore {{ param }}",
       "delete": {
-        "question": "Sei sicuro di volere eliminare Pantry {{ id }}?"
+        "question": "Sei sicuro di volere eliminare la dispensa {{ id }}?"
       },
       "detail": {
-        "title": "Pantry"
+        "title": "Dispensa"
       },
       "id": "ID",
-      "name": "Name",
-      "active": "Active",
-      "description": "Description",
-      "createdAt": "Created At",
+      "name": "Nome",
+      "active": "Attiva",
+      "description": "Descrizione",
+      "createdAt": "Data di creazione",
       "user": "User",
-      "ingredientquantity": "Ingredientquantity"
+      "ingredientquantity": "Quantità Ingrediente"
     }
   }
 }
