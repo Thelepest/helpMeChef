@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
@@ -47,7 +47,7 @@ export class RecipeUpdateComponent implements OnInit {
     protected ingredientQuantityService: IngredientQuantityService,
     protected toolService: ToolService,
     protected activatedRoute: ActivatedRoute,
-    protected fb: UntypedFormBuilder
+    protected fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
